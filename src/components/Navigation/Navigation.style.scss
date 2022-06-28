@@ -1,0 +1,16 @@
+@import 'assets/partials/main';
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacer;
+    h1{
+        color: $primary;
+    }
+    nav a{
+        @include themify {
+            color: themed( 'textColor' );
+        }
+    }
+}

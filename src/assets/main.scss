@@ -1,0 +1,11 @@
+@import './partials/reset';
+@import './partials/main';
+
+body {
+    @include themify {
+        background-color: themed( 'backgroundColor' );
+    }
+    font-family: arial;
+    width: 100vw;
+    overflow-x: hidden;
+}

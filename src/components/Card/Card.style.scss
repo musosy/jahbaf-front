@@ -1,0 +1,42 @@
+@import 'assets/partials/main';
+
+.card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: relative;
+    border-radius: 3px;
+    box-sizing: border-box;
+    @include themify {
+        background: themed( 'gradientBg' );
+        border-top: 1px solid themed( 'lightBorder' );
+        border-bottom: 1px solid themed( 'darkBorder' );
+    }
+    &__header{
+        align-items: center;
+        h2{
+            @include themify {
+                color: themed( 'textColor' );
+            }
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            word-spacing: 5px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        hr {
+            margin: 10px -10px;
+            border: none;
+            opacity: .6;
+            @include themify {
+                border-bottom: 1px solid themed( 'lightBorder' );
+                border-top: 1px solid themed( 'darkBorder' );
+            }
+        }
+        &__content{
+            display: flex;
+            align-items: center;
+        }
+    }
+}

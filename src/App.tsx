@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux';
+import { Navigation, Notification } from 'components';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from 'routes';
+import { StoreState } from 'store';
+import './App.scss';
 
 const App = () => {
+    const notification = useSelector((state: StoreState) => state.notification);
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                Learn React
-                </a>
-            </header>
+        <div>
+            { notification.isVisible && <Notification/> }
+            <BrowserRouter>
+                <Navigation/>
+                <Routes/>
+            </BrowserRouter>
         </div>
     );
 };

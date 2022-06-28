@@ -1,0 +1,23 @@
+@import '../../../assets/partials/_layout.scss';
+@import '../../../assets/partials/colors';
+
+.input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px 0;
+    outline: none;
+    border: none;
+    height: 25px;
+    width: 100%;
+    @include radius;
+    &:active, &:focus {
+        outline: 2px rgba($primary, 0.3) solid;
+    }
+    &:checked {
+        background-color: tomato !important;
+    }
+}
+
+.wrong-input {
+    outline: red;
+}

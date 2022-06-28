@@ -1,0 +1,48 @@
+
+
+@import 'assets/partials/main';
+
+.navigation-desktop {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacer;
+    h1{
+        color: $primary;
+    }
+    nav {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-right: calc(3 * $spacer);
+    }
+    nav a{
+        @include themify {
+            color: themed( 'textColor' );
+        }
+    }
+
+    
+.switch {
+    @include themify {
+        background-color: themed( 'reverseBgColor' );
+    }
+    svg{
+        @include themify {
+            color: themed( 'textColor' );
+        }
+    }
+    div{
+        @include themify {
+            background-color: themed( 'backgroundColor' );
+        }
+    }
+}
+}
+
+@media screen and (min-width: 600px) {
+    .navigation-desktop{
+        display: flex;
+    }
+}
