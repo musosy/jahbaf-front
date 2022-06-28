@@ -1,0 +1,46 @@
+@import 'assets/partials/main';
+
+.close-button {
+    position: relative;
+    margin-left: 10px;
+    height: 35px;
+    width: 35px;
+    border-radius: 2px;
+    z-index: 10;
+    @include themify {
+        background: themed( 'deepBg' );
+        border-bottom: 1px solid themed( 'lightBorder' );
+        border-top: 1px solid themed( 'darkBorder' );
+    }
+    box-shadow: inset 0 5px 5px 0 #00000066;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition-duration: .2s;
+    cursor: pointer;
+    &:hover{
+        box-shadow: inset 0 4px 4px 0 #00000055;
+        svg {
+            transform: translateY(-1px);
+        }
+    }
+    &:active {
+        box-shadow: inset 0 4px 4px 0 #000000bb;
+        svg {
+            transform: translateY(1px);
+        }
+    }
+    svg {
+        position: absolute;
+        transition-duration: .2s;
+        &:first-child {
+            color: #df7732;
+        }
+        &:nth-child(2){
+            color: #974A17;
+            top: 4.5px;
+            z-index: -1;
+        }
+    }
+}

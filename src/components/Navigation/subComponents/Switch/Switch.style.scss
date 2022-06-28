@@ -1,0 +1,34 @@
+@import 'assets/partials/main';
+
+.switch {
+    cursor: pointer;
+    border-radius: 3px;
+    width: 30px;
+    padding: 4px;
+    margin-right: $spacer;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    svg{
+        position: absolute;
+        &:first-child{
+            left: -20px;
+        }
+        &:nth-child(3){
+            right: -20px;
+        }
+    }
+    div{
+        height: 15px;
+        width: 15px;
+        border-radius: 3px;
+        transition: .3s;
+    }
+    .left {
+        transform: translateX(0);
+    }
+    .right {
+        transform: translateX(15px);
+    }
+}

@@ -1,0 +1,22 @@
+@import 'assets/partials/main';
+
+.loader_outer {
+    transform-origin: center;
+    animation-duration: .8s;
+    animation-name: loaderAnim;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    .loader_inner {
+        height: 8px;
+        width: 8px;
+        border-radius: 5px;
+        @include themify {
+            background-color: themed( 'textColor' );
+        }
+    }
+}
+
+@keyframes loaderAnim {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}

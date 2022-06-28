@@ -1,0 +1,16 @@
+$generic-border-radius: 3px;
+$spacer: 1rem;
+
+@mixin radius {
+    border-radius: $generic-border-radius;
+}
+
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
