@@ -1,9 +1,9 @@
 import ConfirmAccount from 'components/ConfirmAccount/ConfirmAccount.component';
-// import ForgotPassword from 'components/ForgotPassword/ForgotPassword.component';
-import Login from 'components/Login/Login.component';
-// import ResetPassword from 'components/ResetPassword/ResetPassword.component';
-import Register from 'components/Register/Register.component';
+import ForgotPassword from 'components/ForgotPassword/ForgotPassword.component';
 import Home from 'pages/Home/Home';
+import Login from 'components/Login/Login.component';
+import Register from 'components/Register/Register.component';
+import ResetPassword from 'components/ResetPassword/ResetPassword.component';
 // import { Project } from 'pages/Project';
 // import { Projects } from 'pages/Projects';
 import { Routes } from './Routes.enum';
@@ -58,7 +58,7 @@ export const routes: RouteType[] = [
         component: ConfirmAccount,
         needsAuth: NeedsAuth.NO,
         exact: true
-    }/*
+    },
     {
         path: Routes.FORGOT_PASSWORD,
         component: ForgotPassword,
@@ -70,5 +70,5 @@ export const routes: RouteType[] = [
         component: ResetPassword,
         needsAuth: NeedsAuth.NO,
         exact: true
-    } */
+    }
 ];
