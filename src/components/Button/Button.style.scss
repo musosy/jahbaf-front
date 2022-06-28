@@ -1,0 +1,35 @@
+@import 'assets/partials/main';
+
+.button {
+    background: radial-gradient(ellipse at top, #FBA064, #D06B28);
+    height: 35px;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-weight: 900;
+    border-radius: 2px;
+    border-top: 2px solid #FFBA8C;
+    border-bottom: 2px solid #974A17;
+    box-shadow: 0 3px 2px 0 #00000033;
+    &:disabled{
+        opacity: .5;
+        cursor: initial;
+        pointer-events: none;
+    }
+    transition-duration: .1s;
+    transition-timing-function: ease-in-out;
+    span {
+        color: #333;
+        opacity: 1;
+    }
+    &:hover{
+        box-shadow: 0 5px 2px 0 #00000022;
+        transform: translateY(-1px);
+    }
+    &:active {
+        box-shadow: 0 1px 2px 0 #00000055;
+        transform: translateY(1px);
+    }
+}

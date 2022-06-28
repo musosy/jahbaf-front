@@ -1,0 +1,66 @@
+@import 'assets/partials/main';
+
+.popup {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff00;
+    backdrop-filter: blur(10px);
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-name: backgroundAnim;
+    z-index: 100;
+    &.enter{
+        &-left, &-right, &-top, &-bottom{
+            .popup-content {
+                animation-delay: .2s;
+                animation-duration: .4s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in-out;
+            }
+        }
+        &-left .popup-content {
+            transform: translateX(-100vw);
+            animation-name: enterLeft;
+        }
+        &-right .popup-content {
+            transform: translateX(100vw);
+            animation-name: enterRight;
+        }
+        &-top .popup-content {
+            transform: translateY(-100vh);
+            animation-name: enterTop;
+        }
+        &-botton .popup-content {
+            transform: translateY(100vh);
+            animation-name: enterBottom;
+        }
+    }
+}
+
+@keyframes backgroundAnim {
+    0%{ background: #ffffff00;}
+    100%{ background: #ffffff22;}
+}
+
+@keyframes enterLeft {
+    0%{ transform: translateX(-100vw); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
+}
+@keyframes enterRight {
+    0%{ transform: translateX(100vw); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
+}
+@keyframes enterTop {
+    0%{ transform: translateY(-100vh); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
+}
+@keyframes enterBottom {
+    0%{ transform: translateY(100vh); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
+}

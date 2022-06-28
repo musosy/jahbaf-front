@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+@mixin roboto {
+    font-family: 'Roboto', sans-serif;
+}
+@mixin roboto-bold {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}

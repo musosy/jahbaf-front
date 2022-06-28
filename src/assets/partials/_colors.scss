@@ -1,0 +1,51 @@
+$green: #79C177;
+$primary: #FF8E3C;
+$primary-dark: #D7722F;
+
+$themes: (
+  light: (
+    backgroundColor: #ddd,
+    reverseBgColor: #243353,
+    textColor: #222,
+    reverseTextColor: #eee,
+    lightBorder: #f3fbff,
+    darkBorder: #808fb6,
+    deepBg: #9E9E9E,
+    gradientBg: radial-gradient(ellipse at top, #E8E8E8, #C8C8C8),
+    darkGradientBg: radial-gradient(ellipse at top, #9d9d9d, #c1c1c1)
+  ),
+  dark: (
+    backgroundColor: #243353,
+    reverseBgColor: #ddd,
+    textColor: #eee,
+    reverseTextColor: #222,
+    lightBorder: #3f5893,
+    darkBorder: #050a18,
+    deepBg: #1B2335,
+    gradientBg: radial-gradient(ellipse at top, #364159, #1B2335),
+    darkGradientBg: radial-gradient(ellipse at top, #121723, #283042)
+  ),
+);
+
+@mixin themify( $themes: $themes ) {
+    @each $theme, $map in $themes {
+  
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed( $key ) {
+    @return map-get( $theme-map, $key );
+}
+
+@mixin shadowed {
+    box-shadow: 3px 15px 0 25px #00000033;
+}
