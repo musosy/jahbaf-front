@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import Logout from 'components/Logout/Logout.component';
 import { Switch } from 'components/Navigation/subComponents/Switch';
 import { useGetSelf } from 'hooks/useGetSelf.hook';
@@ -7,9 +7,12 @@ import { Routes } from 'routes/Routes.enum';
 // import { NavigationDesktopProps } from './NavigationDesktop.props';
 
 import './NavigationDesktop.style.scss';
+import { useSelector } from 'react-redux';
+import { StoreState } from 'store';
 
 export const NavigationDesktop = ({ onSwitchTheme, currentTheme }: any) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const authentication = useSelector((state: StoreState) => state.authentication);
     const history = useHistory();
     const { location } = history;
     const isAuth = location.pathname === Routes.LOGIN || location.pathname === Routes.REGISTER;
@@ -19,9 +22,9 @@ export const NavigationDesktop = ({ onSwitchTheme, currentTheme }: any) => {
             setIsLoggedIn(result.isLoggedIn);
         };
         asyncbootstrap();
-    }, []);
+    }, [authentication]);
     return (
-        <div className="navigation-desktop">
+        <div className='navigation-desktop'>
             <h1>JAHBAF</h1>
             <nav>
                 {isLoggedIn

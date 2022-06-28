@@ -2,9 +2,9 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:4000/api';
 
 export const autoLogin = async (token: string): Promise<any> => {
     const result = await fetch(`${BACKEND_URL}/auth/auto-login`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`
         }
     });
@@ -13,9 +13,9 @@ export const autoLogin = async (token: string): Promise<any> => {
 
 export const login = async (email: string, password: string): Promise<any> => {
     const result = await fetch(`${BACKEND_URL}/auth/login`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ user: { email, password } })
     });
@@ -24,31 +24,33 @@ export const login = async (email: string, password: string): Promise<any> => {
 
 export const register = async (name: string, email: string, password: string): Promise<any> => {
     const result = await fetch(`${BACKEND_URL}/auth/register`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ user: { name, email, password } })
     });
     return await result.json();
 };
 
-export const confirmEmail = async (token: string): Promise<any> => {
-    const result = await fetch(`${BACKEND_URL}/auth/confirm-email`, {
-        method: "POST",
+export const confirmAccount = async (token: string): Promise<any> => {
+    const url = `${BACKEND_URL}/auth/confirm-account/${token}`;
+    console.log(url);
+    const result = await fetch(url, {
+        method: 'GET',
         headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ token })
+            'Content-Type': 'application/json'
+        }
     });
+    window.location.reload();
     return await result.json();
 };
 
 export const resetPasswordMail = async (email: string): Promise<any> => {
-    const result = await fetch(`${BACKEND_URL}/auth/reset-password-email`, {
-        method: "POST",
+    const result = await fetch(`${BACKEND_URL}/auth/reset-password-mail`, {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email })
     });
@@ -57,11 +59,11 @@ export const resetPasswordMail = async (email: string): Promise<any> => {
 
 export const resetPassword = async (token: string, password: string): Promise<any> => {
     const result = await fetch(`${BACKEND_URL}/auth/reset-password`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ token, password })
+        body: JSON.stringify({ data: { token, password } })
     });
     return await result.json();
 };

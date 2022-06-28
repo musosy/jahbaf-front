@@ -1,7 +1,7 @@
+import { BallTriangle } from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import './Loader.style.scss';
 
 export const Loader = () => (
-    <div className="loader_outer">
-        <div className="loader_inner"></div>
-    </div>
+    <BallTriangle color="grey" height={200} width={200} />
 );
