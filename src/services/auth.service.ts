@@ -28,19 +28,21 @@ export const register = async (name: string, email: string, password: string): P
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ user: { name, email, password } })
     });
     return await result.json();
 };
 
-export const confirmEmail = async (token: string): Promise<any> => {
-    const result = await fetch(`${BACKEND_URL}/auth/confirm-email`, {
-        method: "POST",
+export const confirmAccount = async (token: string): Promise<any> => {
+    const url = `${BACKEND_URL}/auth/confirm-account/${token}`;
+    console.log(url);
+    const result = await fetch(url, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ token })
+        }
     });
+    window.location.reload();
     return await result.json();
 };
 

@@ -6,7 +6,6 @@ export type Theme = 'light' | 'dark';
 
 export const Navigation = () => {
     const [currentTheme, switchTheme] = useState<Theme>('dark');
-
     useEffect(() => {
         const userTheme: Theme | null = localStorage.getItem('jahbaf-theme') as Theme | null;
         if (!userTheme) {

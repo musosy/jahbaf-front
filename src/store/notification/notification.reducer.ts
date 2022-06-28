@@ -1,4 +1,3 @@
-
 import { StoreAction } from 'store';
 import { DISPLAY_NOTIF, HIDE_NOTIF, NotificationTypes } from '.';
 

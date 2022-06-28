@@ -12,6 +12,7 @@ import { Popup } from 'components/Popup';
 import { Card } from 'components/Card';
 import { Routes } from 'routes/Routes.enum';
 import { useHistory } from 'react-router';
+import { register } from 'services';
 
 const Register = () => {
     const history = useHistory();
@@ -33,9 +34,12 @@ const Register = () => {
 
     const { nickname, email, password, confirmPassword } = userInput;
 
-    const isFormValid = () => {
-        return nickname.length > 4 && email.match(emailRegexp) && password.match(passwordRegexp) && confirmPassword && (password === confirmPassword);
-    }
+    const isFormValid = () =>
+        nickname.length > 4 &&
+        email.match(emailRegexp) &&
+        password.match(passwordRegexp) &&
+        confirmPassword &&
+        (password === confirmPassword);
 
     useEffect(() => {
         setFormValidation({
@@ -54,17 +58,22 @@ const Register = () => {
         });
     }, [userInput]);
 
-    function onSignupSubmit (): void {
+    const onSignupSubmit = async (): Promise<void> => {
         if (isFormValid()) {
-            // TODO: call the api to register the user
-        }
+            const result = await register(nickname, email, password);
+            if (result.status === 201) {
+                setShouldDisplayPopupConfirm(true);
+            } else {
+                console.log(result.message);
+            };
+        };
         setTriggerValidation(true);
-    }
+    };
 
-    function onPopupClose () {
+    const onPopupClose = () => {
         setShouldDisplayPopupConfirm(false);
         history.push(Routes.LOGIN);
-    }
+    };
 
     return (
         <>
